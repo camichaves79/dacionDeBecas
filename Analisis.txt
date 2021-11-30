@@ -1,0 +1,81 @@
+1. Entiendo el probelma_
+	a. ¿Qué se busca?
+	Se busca que al ingresar el nombre de una capital, el programa muestre :
+		1. Cuantos aspirantes continuan en el proceso de selección
+		2. Mínimo, máximo, y promedio de los ingresos familiares. (con el promedio redondeado a dos decimales)
+		3. Cada reconocimiento etnico en una linea nueva en orden descendente de numero de participantes que continúan,
+		y en orden alfabético ascendente en caso de que haya dos etnias con el mismo número de participantes que continúan.
+	b. ¿Que hay que hacer?
+		
+		1. Recibir una entrada de la capital a consultar
+		2. leer la información asociada a la capital
+		3. Determinar cuántos participantes continuan
+		4. Calcular el minimo, el máximo y el promedio de los ingresos
+		5. Determinar cuantos continuan de cada etnia
+		6. Ordenar los que continuan primero en orden alfabético 
+		7. Ordenar los que continuan de mayor a menor numero
+		8. Mostrar el total de participantes que continúan
+		9. Mostrar, en una linea, el minimo, el máximo y el promedio (redoandear a dos cifras este ultimo)
+		10. Mostrar la lista de etnias de participantes que continuan de mayor a menor y en orden alfabético ascendente.
+2. ¿Cuantas variables son?
+3. ¿Cuáles son de entrada, salida, proceso?
+4. Algoritmo
+
+importar csv
+
+
+# Recibir una entrada de la capital a consultar
+capital <-- INPUT
+
+Funcion listaCapital
+	# leer la información asociada a la capital y poner los datos útiles en una lista
+	abrir archivo en modo de lectura como csv_file
+	asignar a csv_reader el método de lectura como diccionario
+	listaTemporal <-- una lista en blanco
+	FOR row in csv_reader:
+		inicializar listaTemporal
+		IF row["ciudad"] = capital:
+			agregar row["etnia"] a listaTemporal
+			agregar row["estrato"] a listaTemporal
+			agregar row["ingresos"] a listaTemporal
+			agregar row["continua"] a listaTemporal
+			agregar listaTemporal a bd
+		FIN IF
+	FIN FOR
+	RETURN bd
+FIN FUNCION		
+
+baseDatos <-- listaCapital
+
+# Determinar cuántos participantes continuan
+FUNCION Continúan
+	conteoContinuan = 0
+	FOR i in range(len(baseDatos)):
+		IF baseDatos[i][3] = 1:
+			conteoContinuan += 1
+		FIN IF
+	FIN FOR
+	RETURN conteoContinuan
+FIN FUNCION
+
+# Hacer una lista de ingresos
+FUNCION listarIngresos
+	listaIngresos <-- []
+	global listaIngresos
+	FOR i in range (len(baseDatos))
+		agregar baseDatos[2] a listaIngresos
+	FIN FOR
+FIN FUNCION
+
+
+
+
+# Calcular el minimo, el máximo y el promedio de los ingresos
+5. Determinar cuantos continuan de cada etnia
+
+
+6. Ordenar los que continuan primero en orden alfabético 
+7. Ordenar los que continuan de mayor a menor numero
+8. Mostrar el total de participantes que continúan
+9. Mostrar, en una linea, el minimo, el máximo y el promedio (redoandear a dos cifras este ultimo)
+10. Mostrar la lista de etnias de participantes que continuan de mayor a menor y en orden alfabético ascendente.
